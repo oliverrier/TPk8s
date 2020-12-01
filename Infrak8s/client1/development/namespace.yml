@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: client1-development
+  labels:
+    app: client1
+    env: development

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client1-development-deployment
+  labels:
+    app: client1
+    env: development
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: client1-development
+  template:
+    metadata:
+      labels:
+        app: client1-development
+    spec:
+      containers:
+        - name: hello-world
+          image: dockercloud/hello-world
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: "1"
+            requests:
+              memory: 1Gi
+              cpu: "1"

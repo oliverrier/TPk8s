@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: client1-development-quota
+spec:
+  hard:
+    requests.cpu: "1OOM"
+    requests.memory: 1Gi
+    limits.cpu: "1OOM"
+    limits.memory: 1Gi
