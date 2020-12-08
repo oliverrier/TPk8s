@@ -16,14 +16,22 @@ spec:
         app: client1-development
     spec:
       containers:
-        - name: hello-world
-          image: dockercloud/hello-world
+        - name: wordpress
+          image: wordpress
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: wordpress-mysql
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           ports:
             - containerPort: 80
           resources:
             limits:
-              memory: 1Gi
-              cpu: "1"
+              memory: 128Mi
+              cpu: '100m'
             requests:
-              memory: 1Gi
-              cpu: "1"
+              memory: 128Mi
+              cpu: '100m'
